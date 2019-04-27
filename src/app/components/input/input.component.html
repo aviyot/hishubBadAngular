@@ -1,9 +1,13 @@
-<div class="input">
+<!-- <div class="input">
       <label id="lb"> {{inputData.label}} </label>
       <input  [type]="inputData.type" id="lb"
               [placeholder]="inputData.placeholder"
-              [value]="inputData.value">
+              [(ngModel)]="inputData.value" >
 </div>
+ -->
 
+<mat-form-field appearance="outline">
+    <mat-label> {{inputData.label}}</mat-label>
+    <input matInput  [placeholder]="inputData.placeholder" [type]="inputData.type">
 
-
+  </mat-form-field>

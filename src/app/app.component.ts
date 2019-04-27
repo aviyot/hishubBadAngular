@@ -21,15 +21,13 @@ ngOnInit() {
     hebel  : { label: "Hebel", placeholder: "Enter Heble", type: "number" , inputClass:"input"  ,value:""},
     tfiraType  : { label: "Type Tfrira", placeholder: "Choice Tfira", type: "select" , inputClass:"input"  ,value:""},
     badName : { label: "Name Bad", placeholder: "Choice Bad", type: "text" , inputClass:"input"  ,value:""},
-    badWidth  : { label: "Width Galil", placeholder: "", type: "number" , inputClass:"input"  ,value:""},
+    badWidth  : { label: "Width Galil", placeholder: "", type: "number" , inputClass:"input"  ,value:"1200"},
     meterRoll  : { label: "Meter In Galil", placeholder: "", type: "number" , inputClass:"input"  ,value:""},
     midaWidth  : { label: "Width Mida", placeholder: "Width", type: "number" , inputClass:"input"  ,value:""},
     midaLength : { label: "Length Mida", placeholder: "Length", type: "number" , inputClass:"input"  ,value:""},
     volanLength  : { label: "Length Volan", placeholder: "Length", type: "number" , inputClass:"input"  ,value:""},
     volanType  : { label: "Type Volan", placeholder: "Type", type: "text" , inputClass:"input"  ,value:""},
-    sharvulLength : { label: "Length Sharvul", placeholder: "Length", type: "number" , inputClass:"input" ,value:""},
-    sheritBtn: { label: "", placeholder: "Length", type: "button" , inputClass:"button",value :"Sherit"},
-    lengthBtn: { label: "", placeholder: "Length", type: "button" , inputClass:"button",value:"Length"}
+    sharvulLength : { label: "Length Sharvul", placeholder: "Length", type: "number" , inputClass:"input" ,value:""}
   };
 }
 }

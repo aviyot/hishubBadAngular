@@ -1,17 +1,18 @@
-.main-data{
+.main-data {
   width: 100%;
 }
 
-app-input {
+app-input ,button {
   width: calc(100%/3);
   background-color: bisque;
   margin: 0.2rem;
   padding: 0.2rem;
 }
-.main-data > div {
+
+.main-data>div {
   display: flex;
   flex-direction: row;
   width: 100%;
-    background-color: lightblue;
-    height: calc(96vh/7);
+  background-color: lightblue;
+  height: calc(96vh/7);
 }
