@@ -1,5 +1,5 @@
 .input {
-  display: flex;
-  flex-flow: column;
-  
+
+ margin: 0.5rem;
+ width: 30%;
 }
