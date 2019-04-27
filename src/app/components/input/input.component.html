@@ -1,8 +1,8 @@
 <div class="input">
-  <mat-form-field appearance="fill">
-      <mat-label > {{inputData.label}} </mat-label>
-      <input  matInput [type]="inputData.type"  [placeholder]="inputData.placeholder">
-  </mat-form-field>
+      <label id="lb"> {{inputData.label}} </label>
+      <input  [type]="inputData.type" id="lb"
+              [placeholder]="inputData.placeholder"
+              [value]="inputData.value">
 </div>
 
 

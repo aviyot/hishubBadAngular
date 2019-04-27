@@ -1,7 +1,17 @@
+.main-data{
+  width: 100%;
+}
 
+app-input {
+  width: calc(100%/3);
+  background-color: bisque;
+  margin: 0.2rem;
+  padding: 0.2rem;
+}
 .main-data > div {
   display: flex;
   flex-direction: row;
   width: 100%;
-  background-color: antiquewhite;
+    background-color: lightblue;
+    height: calc(96vh/7);
 }
