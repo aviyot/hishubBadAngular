@@ -7,7 +7,11 @@
  -->
 
 <mat-form-field appearance="outline">
-    <mat-label> {{inputData.label}}</mat-label>
-    <input matInput  [placeholder]="inputData.placeholder" [type]="inputData.type">
-
-  </mat-form-field>
+  <mat-label> {{ inputData.label }}</mat-label>
+  <input
+    matInput
+    [placeholder]="inputData.placeholder"
+    [type]="inputData.type"
+    [value]="inputData.value"
+  />
+</mat-form-field>
