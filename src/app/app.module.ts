@@ -7,11 +7,13 @@ import { AppComponent } from './app.component';
 import { InputComponent } from './components/input/input.component';
 import { MaterialModule } from './material/material.module';
 import { FormsModule } from '@angular/forms';
+import { ToolbarComponent } from './toolbar/toolbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InputComponent
+    InputComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
