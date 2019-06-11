@@ -1,41 +1,5 @@
 
-<app-toolbar> </app-toolbar>
-<div class = "main-data" >
-  <div class ="client">
-    <app-input  [inputData]="inputData.client"> </app-input>
-    <app-input  [inputData]="inputData.date"> </app-input>
-    <app-input  [inputData]="inputData.orderNum"> </app-input>
-  </div>
-  <div class="tfira">
-    <app-input  [inputData]="inputData.kant"> </app-input>
-    <app-input  [inputData]="inputData.hibur"> </app-input>
-    <app-input  [inputData]="inputData.hebel"> </app-input>
-</div>
-<div class="tfira-type">
-    <app-input  class="tfrira-type" [inputData]="inputData.tfiraType"> </app-input>
-</div>
-<div class ="bad">
-    <app-input  [inputData]="inputData.badName"> </app-input>
-    <app-input  [inputData]="inputData.badWidth"> </app-input>
-    <app-input  [inputData]="inputData.meterRoll"> </app-input>
-</div>
-<div calss="mida">
-    <app-input  [inputData]="inputData.midaWidth"> </app-input>
-    <app-input  [inputData]="inputData.midaLength"> </app-input>
-    <app-input  [inputData]="inputData.volanLength"> </app-input>
-    <app-input  [inputData]="inputData.sherit"> </app-input>
+<app-toolbar></app-toolbar>
 
-  </div>
-  <div class ="mida-add">
-    <app-input  [inputData]="inputData.volanType"> </app-input>
-    <app-input  [inputData]="inputData.sharvulLength"> </app-input>
-  </div>
-  <div class = "btns">
-      <button   class="hishubOreh" mat-raised-button color="primary"
-                (click)= "getSheerit()">Hasheb Sherit</button>
-     <button class ="hishubWidth" mat-button color="accent">Hasheb Length</button>
-
-  </div>
-</div>
-
+ <router-outlet></router-outlet>
 

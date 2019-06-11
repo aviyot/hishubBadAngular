@@ -1,6 +1,15 @@
 <mat-toolbar>
-  <span>Main </span>
-  <span>Calac Oreh </span>
-  <span>Calac Width </span>
-  <div> Badim </div>
+  <a [routerLink]="['home']"> Home </a>
+
+  <a [routerLink]="['order']" routerLinkActive="router-link-active">Order</a>
+
+  <a  [routerLink]  [matMenuTriggerFor]="menu">Calc</a>
+  <mat-menu #menu="matMenu">
+      <a [routerLink]="['calc-length']">Length</a>
+      <a [routerLink]="['calc-width']">Width</a>
+  </mat-menu>
+
+  <a [routerLink]="['']">Stock </a>
+
+
 </mat-toolbar>

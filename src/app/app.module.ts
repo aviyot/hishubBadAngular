@@ -13,6 +13,9 @@ import { SizeOrderComponent } from './size-order/size-order.component';
 import { SewingMachineComponent } from './sewing-machine/sewing-machine.component';
 import { SewingTypeComponent } from './sewing-type/sewing-type.component';
 import { FabricComponent } from './fabric/fabric.component';
+import { MainMenuComponent } from './main-menu/main-menu.component';
+import { CalcWidthComponent } from './calc-width/calc-width.component';
+import { CalcLengthComponent } from './calc-length/calc-length.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { FabricComponent } from './fabric/fabric.component';
     SizeOrderComponent,
     SewingMachineComponent,
     SewingTypeComponent,
-    FabricComponent
+    FabricComponent,
+    MainMenuComponent,
+    CalcWidthComponent,
+    CalcLengthComponent
   ],
   imports: [
     BrowserModule,
