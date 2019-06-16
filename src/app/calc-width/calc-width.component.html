@@ -1,4 +1,30 @@
+<div>
+  <app-input [inputData]="inputData.midaWidth"> </app-input>
+  <app-input [inputData]="inputData.badWidth"> </app-input>
+  <app-input [inputData]="inputData.sherit"> </app-input>
+</div>
 
-<mat-form-field class="size">
-  <input matInput type="number" placeholder="Enter Width" label="Width">
-</mat-form-field>
+<button class="hishubOreh" mat-raised-button color="primary" (click)="getSheerit()">Hasheb Sherit</button>
+
+<mat-grid-list *ngIf="fromComp" cols="4" rowHeight="8:1">
+  <mat-grid-tile>opthion</mat-grid-tile>
+  <mat-grid-tile>left</mat-grid-tile>
+  <mat-grid-tile>width</mat-grid-tile>
+  <mat-grid-tile>right</mat-grid-tile>
+  <mat-grid-tile>#1</mat-grid-tile>
+  <mat-grid-tile>{{pice}}</mat-grid-tile>
+  <mat-grid-tile>{{shelemim}} X {{inputData.badWidth.value}}</mat-grid-tile>
+  <mat-grid-tile>{{sheerit}}</mat-grid-tile>
+  <mat-grid-tile>#2</mat-grid-tile>
+  <mat-grid-tile>{{simitriBig}}</mat-grid-tile>
+  <mat-grid-tile>{{shelemim-1}} X {{inputData.badWidth.value}}</mat-grid-tile>
+  <mat-grid-tile>{{simitriBig}}</mat-grid-tile>
+  <mat-grid-tile>#3</mat-grid-tile>
+  <mat-grid-tile>{{simitriLittle}}</mat-grid-tile>
+  <mat-grid-tile>{{shelemim}} X {{inputData.badWidth.value}}</mat-grid-tile>
+  <mat-grid-tile>{{simitriLittle}}</mat-grid-tile>
+  <mat-grid-tile>#4</mat-grid-tile>
+  <mat-grid-tile>--</mat-grid-tile>
+  <mat-grid-tile>{{allSimitri}} X {{shelemim+1}}</mat-grid-tile>
+  <mat-grid-tile>--</mat-grid-tile>
+</mat-grid-list>

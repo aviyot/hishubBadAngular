@@ -8,10 +8,5 @@
 
 <mat-form-field appearance="outline">
   <mat-label> {{ inputData.label }}</mat-label>
-  <input
-    matInput
-    [placeholder]="inputData.placeholder"
-    [type]="inputData.type"
-    [(ngModel)]="inputData.value"
-  />
+  <input matInput [placeholder]="inputData.placeholder" [type]="inputData.type" [(ngModel)]="inputData.value" />
 </mat-form-field>
