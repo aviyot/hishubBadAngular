@@ -1,4 +1,14 @@
 a {
   text-decoration: none;
+}
+
+mat-menu a {
   margin: 0.5rem;
+  background-color: blue;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }

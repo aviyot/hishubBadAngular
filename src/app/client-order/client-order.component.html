@@ -1,5 +1,17 @@
-<mat-form-field class="client">
-  <input matInput type="text" placeholder="Enter Client" label="Client">
-  <input matInput type="text" placeholder="Enter Date" label="Date">
-  <input matInput type="number" placeholder="Enter Order" label="Order Num">
+<mat-form-field appearance="outline">
+  <input matInput type="text" placeholder="Enter Client" label="Client" />
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+  <input matInput type="text" placeholder="Enter Date" label="Date" />
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+  <input matInput type="number" placeholder="Enter Order" label="Order Num" />
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+  <mat-select>
+    <mat-option *ngFor="let gziraType of gziraTypes" [value]="gziratype"> {{gziraType}}</mat-option>
+  </mat-select>
 </mat-form-field>

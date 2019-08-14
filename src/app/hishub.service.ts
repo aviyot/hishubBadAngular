@@ -10,6 +10,18 @@ export class HishubService {
   inputData;
   hishubResult;
   pice;
+  gziraOpthion = [
+    "awings",
+    "plata",
+    "nofelet",
+    "volan to awings",
+    "volan without kant",
+    "plata with volan",
+    "awings without volan",
+    "nofelet",
+    "nofelet with volan",
+    "plata with volan"
+  ];
 
   constructor() {
     this.setInputData();
@@ -150,5 +162,9 @@ export class HishubService {
       sherit: this.sherit
     };
     return this.hishubResult;
+  }
+
+  hishubLength(): number {
+    return 3650;
   }
 }

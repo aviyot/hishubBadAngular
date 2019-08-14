@@ -17,6 +17,7 @@ import { MainMenuComponent } from "./main-menu/main-menu.component";
 import { CalcWidthComponent } from "./calc-width/calc-width.component";
 import { CalcLengthComponent } from "./calc-length/calc-length.component";
 import { ClientsComponent } from "./clients/clients.component";
+import { StockComponent } from './stock/stock/stock.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ClientsComponent } from "./clients/clients.component";
     MainMenuComponent,
     CalcWidthComponent,
     CalcLengthComponent,
-    ClientsComponent
+    ClientsComponent,
+    StockComponent
   ],
   imports: [
     BrowserModule,
