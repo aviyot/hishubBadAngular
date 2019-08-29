@@ -1,23 +1,20 @@
 import { Component, OnInit } from "@angular/core";
+import { BadService, BadProp } from "src/app/bad.service";
+import { Router } from '@angular/router';
 
-export interface BadProp {
-  name: string;
-  width: number;
-  type: string;
-}
-
-const Badim: BadProp[] = [
-  { name: "R123", width: 1200, type: "Dralon" },
-  { name: "Kosta7", width: 1500, type: "PVC" }
-];
 @Component({
   selector: "app-stock",
   templateUrl: "./stock.component.html",
   styleUrls: ["./stock.component.css"]
 })
 export class StockComponent implements OnInit {
-  constructor() {}
+  constructor(private badService: BadService,
+    private router : Router) {}
   displayedColumns: string[] = ["name", "width", "type"];
-  dataSource = Badim;
+  dataSource = this.badService.Badim;
   ngOnInit() {}
+  selectBad(selectedBad) {
+    this.badService.selectedBad = selectedBad.name;
+    this.router.navigate(['order']);
+  }
 }

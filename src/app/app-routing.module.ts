@@ -5,6 +5,7 @@ import { CalcLengthComponent } from "./calc-length/calc-length.component";
 import { CalcWidthComponent } from "./calc-width/calc-width.component";
 import { MainMenuComponent } from "./main-menu/main-menu.component";
 import { StockComponent } from "./stock/stock/stock.component";
+import { TfiraComponent } from "./tfira/tfira.component";
 
 const routes: Routes = [
   { path: "order", component: ClientOrderComponent },
@@ -12,7 +13,9 @@ const routes: Routes = [
   { path: "calc-width", component: CalcWidthComponent },
   { path: "home", component: MainMenuComponent },
   { path: "", component: MainMenuComponent, pathMatch: "full" },
-  { path: "stock", component: StockComponent }
+  { path: "stock", component: StockComponent },
+  { path: "", component: TfiraComponent },
+  { path: "", component: TfiraComponent, outlet: "tfira" }
 ];
 
 @NgModule({

@@ -1,7 +1,8 @@
-<form class="mat-elevation-z8">
-  <mat-form-field >
+<form class="mat-elevation-z8" (ngSubmit)="calcLength()" #f="ngForm">
+
+  <mat-form-field>
     <mat-label>GZIRA</mat-label>
-    <mat-select [(value)]="selectedOpthin">
+    <mat-select name="selectedOpthin" (selectionChange)="onSelectionChange()" [(ngModel)]="selectedOpthin">
       <mat-option *ngFor="let opthin of gziraOpthin" [value]="opthin">
         {{opthin}}
       </mat-option>
@@ -9,43 +10,49 @@
   </mat-form-field>
 
   <mat-form-field appearance="outline">
-    <mat-label>width</mat-label>
-    <input matInput placeholder="width" name="width" type="number" [(ngModel)]="width" />
-  </mat-form-field>
-
-  <mat-form-field appearance="outline">
     <mat-label>width galil</mat-label>
-    <input matInput placeholder="width galil" name="widthGalil" type="number" [(ngModel)]="widthGalil" />
+    <input matInput placeholder="width galil" name="widthGalil" type="number" [(ngModel)]="widthGalil" required />
   </mat-form-field>
 
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Length</mat-label>
+      <input matInput name="length" type="number" [(ngModel)]=" bodyLength" />
+    </mat-form-field>
 
-  <mat-slide-toggle>Pice</mat-slide-toggle>
+    <mat-form-field appearance="outline">
+      <mat-label>width</mat-label>
+      <input matInput name="width" type="number" [(ngModel)]="width" required />
+    </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Pice</mat-label>
-    <input matInput placeholder="pice" name="pice" type="number" [(ngModel)]="pice" />
-  </mat-form-field>
+    <mat-slide-toggle>Pice</mat-slide-toggle>
+    <mat-form-field appearance="outline">
+      <mat-label>Pice</mat-label>
+      <input matInput placeholder="pice" name="pice" type="number" [(ngModel)]="pice" />
+    </mat-form-field>
+  </div>
 
 
-  <mat-form-field appearance="outline">
-    <mat-label>Body Length</mat-label>
-    <input matInput placeholder="Length Body" name="bodyLength" type="number" [(ngModel)]="bodyLength" />
-  </mat-form-field>
-
-  <mat-form-field appearance="outline">
+  <mat-form-field *ngIf="haveVolan" appearance="outline">
     <mat-label>Volan Length</mat-label>
     <input matInput placeholder="Volan Length" name="volanLength" type="number" [(ngModel)]="volanLength" />
   </mat-form-field>
 
 
-  <mat-form-field appearance="outline" *ngIf="selectedOpthin==='nofelet' ">
+  <mat-form-field *ngIf="haveSharvol" appearance="outline">
     <mat-label>Sharvul Length</mat-label>
-    <input matInput placeholder="Sharvul Length" name="sharvulLength" type="number" [(ngModel)]="volanLength" />
+    <input matInput placeholder="Sharvul Length" name="sharvulLength" type="number" [(ngModel)]="sharvulLength" />
   </mat-form-field>
+
   <div>
-    <button mat-raised-button color="primary" (click)="calcLength()">Hasheb Length</button>
+    <button [disabled]="f.invalid" mat-raised-button type="submit" color="primary">Hasheb Length</button>
+    <button mat-raised-button type="reset" color="accesnt">reset</button>
+
   </div>
 </form>
 
-<div> {{resultLength}}M</div>
-<div>{{selectedOpthin}}</div>
+<div *ngIf="lengthes.length > 0">
+  <div *ngFor="let len of lengthes">
+    <div> {{len}}</div>
+  </div>
+</div>

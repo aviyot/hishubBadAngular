@@ -1,0 +1,8 @@
+<mat-form-field>
+  <mat-label>GZIRA</mat-label>
+  <mat-select [(value)]="selectedOpthin">
+    <mat-option *ngFor="let opthin of gziraOpthin" [value]="opthin">
+      {{opthin}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

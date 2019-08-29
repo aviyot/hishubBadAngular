@@ -1,17 +1,70 @@
-<mat-form-field appearance="outline">
-  <input matInput type="text" placeholder="Enter Client" label="Client" />
-</mat-form-field>
+<form #f="ngForm">
+  <!-- (ngSubmit)="sendData(f)" -->
+  <div class="order">
+    <mat-form-field appearance="outline">
+      <mat-label>Client</mat-label>
+      <input matInput type="text" name="client" [(ngModel)]="client" />
+    </mat-form-field>
 
-<mat-form-field appearance="outline">
-  <input matInput type="text" placeholder="Enter Date" label="Date" />
-</mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Date</mat-label>
+      <input matInput type="date" name="date" [(ngModel)]="date" />
+    </mat-form-field>
 
-<mat-form-field appearance="outline">
-  <input matInput type="number" placeholder="Enter Order" label="Order Num" />
-</mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Order No.</mat-label>
+      <input matInput type="number" name="orderNumber" [(ngModel)]="orderNumber" />
+    </mat-form-field>
+  </div>
 
-<mat-form-field appearance="outline">
-  <mat-select>
-    <mat-option *ngFor="let gziraType of gziraTypes" [value]="gziratype"> {{gziraType}}</mat-option>
-  </mat-select>
-</mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>GZIRA</mat-label>
+    <mat-select name="selectedOpthion" [(ngModel)]="selectedOpthin" (selectionChange)="onSelectionChange()">
+      <mat-option *ngFor="let opthin of  gziraOpthin" [value]="opthin">
+        {{opthin}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" (click)="goToBadim()">
+    <mat-label>Bad Name</mat-label>
+    <mat-select name="selectedBad" [(ngModel)]="selectedBad">
+      <mat-option *ngFor="let bad of  badim" [value]="bad.name">
+        {{bad.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="size">
+    <mat-form-field appearance="outline">
+      <mat-label>width</mat-label>
+      <input matInput name="width" type="number" [(ngModel)]="width" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Length</mat-label>
+      <input matInput name="length" type="number" [(ngModel)]="length" />
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field appearance="outline" *ngIf="haveVolan">
+      <mat-label>Volan</mat-label>
+      <input matInput name="volanLength" type="number" [(ngModel)]="volan" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" *ngIf="haveSharvol">
+      <mat-label>Sharvul</mat-label>
+      <input matInput name="sharvulLength" type="number" [(ngModel)]="sharvul" />
+    </mat-form-field>
+  </div>
+
+  <div class="btns">
+    <button class="hishubWidth" type="button" mat-raised-button color="primary" (click)=" calcPice(f)">
+      Calc Pice
+    </button>
+    <button class="hishubOreh" type="button" mat-button color="accent" (click)="calcLength(f)">Calc Length
+    </button>
+
+  </div>
+</form>

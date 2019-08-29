@@ -1,11 +1,21 @@
 <div>
-  <app-input [inputData]="inputData.midaWidth"> </app-input>
-  <app-input [inputData]="inputData.badWidth"> </app-input>
-  <app-input [inputData]="inputData.sherit"> </app-input>
+  <mat-form-field appearance="outline">
+    <mat-label>width mida</mat-label>
+    <input matInput name="width" type="number" [(ngModel)]="widthMida" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>width galil</mat-label>
+    <input matInput name="width" type="number" [(ngModel)]="widthGalil" />
+
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>pice</mat-label>
+    <input matInput name="width" type="number" [(ngModel)]="widthPice" />
+  </mat-form-field>
 </div>
 
-<button class="hishubOreh" mat-raised-button color="primary" (click)="getSheerit()">Hasheb Sherit</button>
-
+<button [disabled]="widthMida <= 0" class="hishubOreh" mat-raised-button color="primary" (click)="getSheerit()">Hasheb Sherit</button>
 <mat-grid-list *ngIf="fromComp" cols="4" rowHeight="8:1" class="mat-elevation-z8">
   <mat-grid-tile>opthion</mat-grid-tile>
   <mat-grid-tile>left</mat-grid-tile>
@@ -13,18 +23,18 @@
   <mat-grid-tile>right</mat-grid-tile>
   <mat-grid-tile>#1</mat-grid-tile>
   <mat-grid-tile>{{pice}}</mat-grid-tile>
-  <mat-grid-tile>{{shelemim}} X {{inputData.badWidth.value}}</mat-grid-tile>
-  <mat-grid-tile>{{sheerit}}</mat-grid-tile>
+  <mat-grid-tile>{{shelemim}} X {{widthGalil}}</mat-grid-tile>
+  <mat-grid-tile>{{sherit}}</mat-grid-tile>
   <mat-grid-tile>#2</mat-grid-tile>
   <mat-grid-tile>{{simitriBig}}</mat-grid-tile>
-  <mat-grid-tile>{{shelemim-1}} X {{inputData.badWidth.value}}</mat-grid-tile>
+  <mat-grid-tile>{{shelemim-1}} X {{widthGalil}}</mat-grid-tile>
   <mat-grid-tile>{{simitriBig}}</mat-grid-tile>
   <mat-grid-tile>#3</mat-grid-tile>
   <mat-grid-tile>{{simitriLittle}}</mat-grid-tile>
-  <mat-grid-tile>{{shelemim}} X {{inputData.badWidth.value}}</mat-grid-tile>
+  <mat-grid-tile>{{shelemim}} X {{widthGalil}}</mat-grid-tile>
   <mat-grid-tile>{{simitriLittle}}</mat-grid-tile>
   <mat-grid-tile>#4</mat-grid-tile>
   <mat-grid-tile>--</mat-grid-tile>
-  <mat-grid-tile>{{allSimitri}} X {{shelemim+1}}</mat-grid-tile>
+  <mat-grid-tile> {{shelemim+1}} X {{allSimitri}} </mat-grid-tile>
   <mat-grid-tile>--</mat-grid-tile>
 </mat-grid-list>

@@ -18,6 +18,14 @@ import { CalcWidthComponent } from "./calc-width/calc-width.component";
 import { CalcLengthComponent } from "./calc-length/calc-length.component";
 import { ClientsComponent } from "./clients/clients.component";
 import { StockComponent } from './stock/stock/stock.component';
+import { AwingsComponent } from './order-type/awings/awings.component';
+import { WidthComponent } from './components/width/width.component';
+import { LengthComponent } from './components/length/length.component';
+import { TypeGziraComponent } from './components/type-gzira/type-gzira.component';
+import { PlataComponent } from './order-type/plata/plata.component';
+import { VolanComponent } from './order-type/volan/volan.component';
+import { NofeletComponent } from './order-type/nofelet/nofelet.component';
+import { TfiraComponent } from './tfira/tfira.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +41,15 @@ import { StockComponent } from './stock/stock/stock.component';
     CalcWidthComponent,
     CalcLengthComponent,
     ClientsComponent,
-    StockComponent
+    StockComponent,
+    AwingsComponent,
+    WidthComponent,
+    LengthComponent,
+    TypeGziraComponent,
+    PlataComponent,
+    VolanComponent,
+    NofeletComponent,
+    TfiraComponent
   ],
   imports: [
     BrowserModule,

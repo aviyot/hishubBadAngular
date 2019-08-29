@@ -1,146 +1,37 @@
 import { Injectable } from "@angular/core";
+import { DataType } from "./InputData/input-data";
+import { NgForm } from "@angular/forms";
 
 @Injectable({
   providedIn: "root"
 })
 export class HishubService {
-  tfiraProp = { hebel: 50, kant: 35, hibur: 25 };
+  orderData;
+  fromOrder = false;
+  tfiraProp = { hebel: 50, kant: 35, hibur: 25, kipulHebel: 30 };
   sherit: number;
   rohabimShlemim: number;
   inputData;
   hishubResult;
   pice;
   gziraOpthion = [
-    "awings",
-    "plata",
-    "nofelet",
-    "volan to awings",
-    "volan without kant",
-    "plata with volan",
-    "awings without volan",
-    "nofelet",
-    "nofelet with volan",
-    "plata with volan"
+    "Awings",
+    "Awings without volan",
+    "Plata",
+    "Plata with volan",
+    "Nofelet",
+    "Nofelet with volan",
+    "Volan to awings",
+    "Volan without kant",
+    "Awings otef front",
+    "Meter Raz"
   ];
 
   constructor() {
     this.setInputData();
   }
   setInputData() {
-    this.inputData = {
-      client: {
-        label: "Client",
-        placeholder: "Enter Client",
-        type: "text",
-        inputClass: "input",
-        value: ""
-      },
-      date: {
-        label: "Date",
-        placeholder: "Enter Client",
-        type: "date",
-        inputClass: "input",
-        value: ""
-      },
-      orderNum: {
-        label: "OrderNum",
-        placeholder: "Enter Client",
-        type: "text",
-        inputClass: "input",
-        value: ""
-      },
-      kant: {
-        label: "Kant",
-        placeholder: "Enter Data",
-        type: "number",
-        inputClass: "input",
-        value: this.tfiraProp.kant
-      },
-      hibur: {
-        label: "Hibur",
-        placeholder: "Enter Hibur",
-        type: "number",
-        inputClass: "input",
-        value: this.tfiraProp.hibur
-      },
-      hebel: {
-        label: "Hebel",
-        placeholder: "Enter Heble",
-        type: "number",
-        inputClass: "input",
-        value: this.tfiraProp.hebel
-      },
-      tfiraType: {
-        label: "Type Tfrira",
-        placeholder: "Choice Tfira",
-        type: "select",
-        inputClass: "input",
-        value: ""
-      },
-      badName: {
-        label: "Name Bad",
-        placeholder: "Choice Bad",
-        type: "text",
-        inputClass: "input",
-        value: ""
-      },
-      badWidth: {
-        label: "Width Galil",
-        placeholder: "",
-        type: "number",
-        inputClass: "input",
-        value: "1200"
-      },
-      meterRoll: {
-        label: "Meter In Galil",
-        placeholder: "",
-        type: "number",
-        inputClass: "input",
-        value: ""
-      },
-      midaWidth: {
-        label: "Width Mida",
-        placeholder: "Width",
-        type: "number",
-        inputClass: "input",
-        value: ""
-      },
-      midaLength: {
-        label: "Length Mida",
-        placeholder: "Length",
-        type: "number",
-        inputClass: "input",
-        value: ""
-      },
-      sherit: {
-        label: "Sherit",
-        placeholder: "Sherit",
-        type: "number",
-        inputClass: "input",
-        value: ""
-      },
-      volanLength: {
-        label: "Length Volan",
-        placeholder: "Length",
-        type: "number",
-        inputClass: "input",
-        value: ""
-      },
-      volanType: {
-        label: "Type Volan",
-        placeholder: "Type",
-        type: "text",
-        inputClass: "input",
-        value: ""
-      },
-      sharvulLength: {
-        label: "Length Sharvul",
-        placeholder: "Length",
-        type: "number",
-        inputClass: "input",
-        value: ""
-      }
-    };
+    this.inputData = DataType;
   }
   hishubSherit(rohabMida: number, rohabBad: number, pice: number) {
     this.pice = pice;
@@ -157,14 +48,24 @@ export class HishubService {
       this.tfiraProp.hibur -
       ((rohabBad - this.tfiraProp.hibur) * this.rohabimShlemim -
         (this.tfiraProp.kant * 2 - this.tfiraProp.hibur));
+
     this.hishubResult = {
       rohabimShlemim: this.rohabimShlemim,
       sherit: this.sherit
     };
+
     return this.hishubResult;
   }
 
-  hishubLength(): number {
-    return 3650;
+  hishubLength(
+    rohabMida: number,
+    rohabBad: number,
+    pice: number,
+    lengthMida: number
+  ): number {
+    const rohabimShlemim = this.hishubSherit(rohabMida, rohabBad, pice)
+      .rohabimShlemim;
+    const totlaLength = (rohabimShlemim + 1) * lengthMida;
+    return totlaLength / 1000;
   }
 }
