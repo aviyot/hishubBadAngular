@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { HishubService } from "../hishub.service";
-import { NgForm } from "@angular/forms";
+import { SewingProp, TypeSewing } from "../model/sewing.model";
+import { SweingService } from "../sweing.service";
 
 @Component({
   selector: "app-calc-length",
@@ -21,26 +22,55 @@ export class CalcLengthComponent implements OnInit {
   haveVolan = false;
   haveSharvol = false;
   addtfira = 0;
+  showSewing = false;
+  sub: any;
+  sewingInit: TypeSewing;
 
-  constructor(private hishubService: HishubService) {
+  constructor(
+    private hishubService: HishubService,
+    private sweingService: SweingService
+  ) {
     this.gziraOpthin = this.hishubService.gziraOpthion;
     this.selectedOpthin = this.gziraOpthin[0];
   }
 
   ngOnInit() {
+    this.sewingInit = this.sweingService.sweingTypes.find(obj => {
+      return obj.type === this.selectedOpthin;
+    });
+
+    this.hishubService.sweingUpdate.subscribe(item => {
+      this.hishubService.tfiraProp.hibur = item.seam;
+      this.hishubService.tfiraProp.hebel = item.topHem;
+      this.hishubService.tfiraProp.hebel = item.bottomHem;
+      this.hishubService.tfiraProp.kant = item.leftHem;
+      this.hishubService.tfiraProp.kant = item.rightHem;
+      this.dfineGzira(this.selectedOpthin);
+    });
     this.selectedOpthin = this.hishubService.gziraOpthion[0];
     if (this.hishubService.fromOrder) {
       this.fromOrder(this.hishubService.orderData);
       this.calcLength();
     }
     this.dfineGzira(this.selectedOpthin);
+    this.sub = this.hishubService.showSewing.subscribe(item => {
+      this.showSewing = item;
+    });
+  }
+  showSewingHandler() {
+    if (this.showSewing) {
+      this.hishubService.showSewing.emit(false);
+    } else {
+      this.hishubService.showSewing.emit(true);
+    }
   }
   calcLength(): number[] {
     this.resultLength = this.hishubService.hishubLength(
       this.width,
       this.widthGalil,
       this.pice,
-      this.bodyLength + this.addtfira
+      this.bodyLength + this.addtfira,
+      this.sewingInit.sewing.leftHem
     );
     this.lengthes.push(this.resultLength);
     return this.lengthes;
@@ -61,6 +91,17 @@ export class CalcLengthComponent implements OnInit {
     switch (gziraType) {
       //awings with volan
       case this.gziraOpthin[0]: {
+        this.sewingInit = {
+          type: gziraType,
+          sewing: {
+            seam: 25,
+            topHem: 50,
+            bottomHem: 50,
+            leftHem: 35,
+            rightHem: 35,
+            hem: 30
+          }
+        };
         this.addtfira =
           this.hishubService.tfiraProp.hebel * 3 + this.volanLength;
         this.haveVolan = true;
@@ -97,7 +138,6 @@ export class CalcLengthComponent implements OnInit {
           this.hishubService.tfiraProp.hebel +
           this.hishubService.tfiraProp.kipulHebel +
           this.sharvulLength;
-        console.log(this.addtfira);
         this.haveVolan = false;
         this.haveSharvol = true;
         break;

@@ -19,11 +19,7 @@ export class MainMenuComponent implements OnInit {
   }
 
   getSheerit() {
-    this.hishubService.hishubSherit(
-      Number(this.inputData.midaWidth.value),
-      Number(this.inputData.badWidth.value),
-      Number(this.inputData.sherit.value)
-    );
+ 
     this.router.navigate(["calc-width"]);
   }
 }

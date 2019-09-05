@@ -1,5 +1,14 @@
 <div>
   <mat-form-field appearance="outline">
+    <mat-label>Hem</mat-label>
+    <mat-select name="selectedOpthin" (selectionChange)="onSelectionChange()" [(ngModel)]="selectedHemSewing">
+      <mat-option *ngFor="let opthin of hemSewings" [value]="opthin.type">
+        {{opthin.type}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
     <mat-label>width mida</mat-label>
     <input matInput name="width" type="number" [(ngModel)]="widthMida" />
   </mat-form-field>
@@ -15,7 +24,8 @@
   </mat-form-field>
 </div>
 
-<button [disabled]="widthMida <= 0" class="hishubOreh" mat-raised-button color="primary" (click)="getSheerit()">Hasheb Sherit</button>
+<button [disabled]="widthMida <= 0" class="hishubOreh" mat-raised-button color="primary" (click)="getSheerit()">Hasheb
+  Sherit</button>
 <mat-grid-list *ngIf="fromComp" cols="4" rowHeight="8:1" class="mat-elevation-z8">
   <mat-grid-tile>opthion</mat-grid-tile>
   <mat-grid-tile>left</mat-grid-tile>

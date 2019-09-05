@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
-import { DataType } from "./InputData/input-data";
-import { NgForm } from "@angular/forms";
+import { Injectable, EventEmitter } from "@angular/core";
+import { SewingProp, TypeSewing } from "./model/sewing.model";
+import { SweingService } from "./sweing.service";
 
 @Injectable({
   providedIn: "root"
@@ -8,6 +8,8 @@ import { NgForm } from "@angular/forms";
 export class HishubService {
   orderData;
   fromOrder = false;
+  showSewing: EventEmitter<boolean> = new EventEmitter<boolean>();
+  sweingUpdate: EventEmitter<SewingProp> = new EventEmitter<SewingProp>();
   tfiraProp = { hebel: 50, kant: 35, hibur: 25, kipulHebel: 30 };
   sherit: number;
   rohabimShlemim: number;
@@ -27,27 +29,23 @@ export class HishubService {
     "Meter Raz"
   ];
 
-  constructor() {
-    this.setInputData();
-  }
-  setInputData() {
-    this.inputData = DataType;
-  }
-  hishubSherit(rohabMida: number, rohabBad: number, pice: number) {
+  constructor(private sweingService: SweingService) {}
+
+  seam = this.sweingService.SEAM;
+
+  hishubSherit(rohabMida: number, rohabBad: number, pice: number, hem: number) {
     this.pice = pice;
     if (pice > 0) {
-      pice -= this.tfiraProp.hibur;
+      pice -= this.seam;
     }
     this.rohabimShlemim = Math.floor(
-      (rohabMida - pice + this.tfiraProp.kant * 2 - this.tfiraProp.hibur) /
-        (rohabBad - this.tfiraProp.hibur)
+      (rohabMida - pice + hem * 2 - this.seam) / (rohabBad - this.seam)
     );
     this.sherit =
       rohabMida -
       pice +
-      this.tfiraProp.hibur -
-      ((rohabBad - this.tfiraProp.hibur) * this.rohabimShlemim -
-        (this.tfiraProp.kant * 2 - this.tfiraProp.hibur));
+      this.seam -
+      ((rohabBad - this.seam) * this.rohabimShlemim - (hem * 2 - this.seam));
 
     this.hishubResult = {
       rohabimShlemim: this.rohabimShlemim,
@@ -61,9 +59,10 @@ export class HishubService {
     rohabMida: number,
     rohabBad: number,
     pice: number,
-    lengthMida: number
+    lengthMida: number,
+    hem: number
   ): number {
-    const rohabimShlemim = this.hishubSherit(rohabMida, rohabBad, pice)
+    const rohabimShlemim = this.hishubSherit(rohabMida, rohabBad, pice, hem)
       .rohabimShlemim;
     const totlaLength = (rohabimShlemim + 1) * lengthMida;
     return totlaLength / 1000;

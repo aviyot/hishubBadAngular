@@ -1,6 +1,6 @@
 <form class="mat-elevation-z8" (ngSubmit)="calcLength()" #f="ngForm">
 
-  <mat-form-field>
+  <mat-form-field appearance="outline">
     <mat-label>GZIRA</mat-label>
     <mat-select name="selectedOpthin" (selectionChange)="onSelectionChange()" [(ngModel)]="selectedOpthin">
       <mat-option *ngFor="let opthin of gziraOpthin" [value]="opthin">
@@ -8,6 +8,9 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
+
+  <button type="click" (click) = "showSewingHandler()">Show Sewing</button>
+  <app-sewing-machine *ngIf = "showSewing"></app-sewing-machine>
 
   <mat-form-field appearance="outline">
     <mat-label>width galil</mat-label>
