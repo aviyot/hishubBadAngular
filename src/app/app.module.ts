@@ -13,19 +13,18 @@ import { SizeOrderComponent } from "./size-order/size-order.component";
 import { SewingMachineComponent } from "./sewing-machine/sewing-machine.component";
 import { SewingTypeComponent } from "./sewing-type/sewing-type.component";
 import { FabricComponent } from "./fabric/fabric.component";
-import { MainMenuComponent } from "./main-menu/main-menu.component";
 import { CalcWidthComponent } from "./calc-width/calc-width.component";
 import { CalcLengthComponent } from "./calc-length/calc-length.component";
 import { ClientsComponent } from "./clients/clients.component";
-import { StockComponent } from './stock/stock/stock.component';
-import { AwingsComponent } from './order-type/awings/awings.component';
-import { WidthComponent } from './components/width/width.component';
-import { LengthComponent } from './components/length/length.component';
-import { TypeGziraComponent } from './components/type-gzira/type-gzira.component';
-import { PlataComponent } from './order-type/plata/plata.component';
-import { VolanComponent } from './order-type/volan/volan.component';
-import { NofeletComponent } from './order-type/nofelet/nofelet.component';
-import { TfiraComponent } from './tfira/tfira.component';
+import { StockComponent } from "./stock/stock/stock.component";
+import { AwingsComponent } from "./order-type/awings/awings.component";
+import { WidthComponent } from "./components/width/width.component";
+import { LengthComponent } from "./components/length/length.component";
+import { TypeGziraComponent } from "./components/type-gzira/type-gzira.component";
+import { PlataComponent } from "./order-type/plata/plata.component";
+import { VolanComponent } from "./order-type/volan/volan.component";
+import { NofeletComponent } from "./order-type/nofelet/nofelet.component";
+import { TfiraComponent } from "./tfira/tfira.component";
 
 @NgModule({
   declarations: [
@@ -37,7 +36,6 @@ import { TfiraComponent } from './tfira/tfira.component';
     SewingMachineComponent,
     SewingTypeComponent,
     FabricComponent,
-    MainMenuComponent,
     CalcWidthComponent,
     CalcLengthComponent,
     ClientsComponent,
