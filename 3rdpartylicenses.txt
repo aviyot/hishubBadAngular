@@ -93,8 +93,6 @@ THE SOFTWARE.
 
 @angular/material/grid-list
 
-@angular/material/menu
-
 @angular/material/select
 
 @angular/material/slide-toggle
