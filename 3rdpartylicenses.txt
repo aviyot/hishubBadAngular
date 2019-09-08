@@ -95,8 +95,6 @@ THE SOFTWARE.
 
 @angular/material/select
 
-@angular/material/slide-toggle
-
 @angular/material/table
 
 @angular/material/toolbar
